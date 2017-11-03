@@ -1,21 +1,26 @@
 unit Unit1;
 
+{$mode objfpc}{$H+}
+
 interface
 
 uses
-  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, unit2;
+  Classes, SysUtils, FileUtil, Forms,
+  Controls, Graphics, Dialogs, StdCtrls, unit2;
 
 type
+
+  { TForm1 }
+
   TForm1 = class(TForm)
     Button1: TButton;
     Edit1: TEdit;
     Edit2: TEdit;
     procedure Button1Click(Sender: TObject);
   private
-    MyClass: TMyClass;
+    { private declarations }
   public
-    { Public declarations }
+    { public declarations }
   end;
 
 var
@@ -23,9 +28,13 @@ var
 
 implementation
 
-{$R *.dfm}
+{$R *.lfm}
+
+{ TForm1 }
 
 procedure TForm1.Button1Click(Sender: TObject);
+var
+  MyClass: TMyClass;
 begin
   MyClass := TMyClass.Create;
   MyClass.MyField:=Form1.Edit1.Text;
@@ -33,4 +42,7 @@ begin
   MyClass.Free;
 end;
 
+
+
 end.
+
