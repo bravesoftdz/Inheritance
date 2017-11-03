@@ -1,32 +1,30 @@
 unit Unit2;
 
 interface
-
 type
 
-{ TAncestor : РџСЂРµРґРѕРє }
+{ TAncestor : Предок }
 
 TAncestor = class
 private
- // Р’РёСЂС‚СѓР°Р»СЊРЅР°СЏ РїСЂРѕС†РµРґСѓСЂР°
+ // Виртуальная процедура
  procedure SetMyField(Value: string); virtual; abstract;
  function GetMyField: string; virtual; abstract;
 protected
 public
 end;
 
-{ TMyClass : РќР°СЃР»РµРґРЅРёРє }
+{ TMyClass : Наследник }
 
 TMyClass = class(TAncestor)
 private
  FMyField: string;
- // РџРµСЂРµРєСЂС‹С‚РёРµ РІРёСЂС‚СѓР°Р»СЊРЅРѕР№ РїСЂРѕС†РµРґСѓСЂС‹
+ // Перекрытие виртуальной процедуры
  procedure SetMyField(Value: string); override;
  function GetMyField: string; override;
 public
  property MyField: string read GetMyField write SetMyField;
 end;
-
 
 implementation
 
@@ -43,4 +41,3 @@ begin
 end;
 
 end.
-
